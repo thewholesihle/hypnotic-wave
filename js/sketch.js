@@ -76,3 +76,23 @@ function preload() {
     }, 1000); // convert to milliseconds
   }
   
+  function draw() {
+    background(bgColor);
+  
+    if (accepted) {
+      waves.forEach((wave) => {
+        wave.create();
+        wave.send(waveSpeed);
+        
+        // fade out
+        if (wave.radius > 150 - wave.waveWeight) {
+          wave.fade(0.85);
+        }
+      });
+    } else {
+      textSize(32);
+      textFont(primaryFont);
+      textAlign(CENTER);
+      text("Sorry", 400 / 2, 400 / 2);
+    }
+  }
