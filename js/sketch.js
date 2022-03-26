@@ -4,7 +4,7 @@ function preload() {
       "https://fonts.cdnfonts.com/s/76424/BronsonBlack-BWP1B.woff"
     );
   }
-
+  
   function setup() {
     accepted = confirm("WARNING\nProgram may generate flashing colors");
     waves = []; // where created waves will be kept and removed
@@ -96,7 +96,7 @@ function preload() {
       text("Sorry", 400 / 2, 400 / 2);
     }
   }
-
+  
   class Wave {
     constructor(radius, waveColor = [0, 0 ,0], waveWeight = 1) {
       this.radius = radius;
@@ -140,3 +140,17 @@ function preload() {
     }
   }
   
+// add prototype function on string to convert hex to rgb
+String.prototype.convertToRGB = function(){
+  if(this.length != 6){
+      throw "Only six-digit hex colors are allowed.";
+  }
+
+  var aRgbHex = this.match(/.{1,2}/g);
+  var aRgb = [
+      parseInt(aRgbHex[0], 16),
+      parseInt(aRgbHex[1], 16),
+      parseInt(aRgbHex[2], 16)
+  ];
+  return aRgb;
+}
