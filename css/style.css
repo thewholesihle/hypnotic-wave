@@ -1,0 +1,111 @@
+:root {
+  --range-input-track-bg: white;
+  --range-input-track-radius: 2rem;
+  --bg-color: #080808;
+}
+
+/* reset/remove default box model */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: var(--bg-color);
+}
+
+.logo {
+  color: aliceblue;
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  transform: scale(0.5);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  padding-right: 4rem;
+}
+
+.inputs label {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: white;
+  padding: 1rem;
+}
+
+canvas {
+  border-radius: 1rem;
+  display: block;
+}
+
+/* STYLE RANGE INPUT TRACK */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--range-input-track-bg);
+  border-radius: 4rem;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: var(--range-input-track-bg);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--range-input-track-bg);
+  border-radius: 4rem;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 4rem;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: var(--range-input-track-bg);
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: var(--range-input-track-bg);
+  border: 0.2px solid #010101;
+  border-radius: 4rem;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: var(--range-input-track-bg);
+}
