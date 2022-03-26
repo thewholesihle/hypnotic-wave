@@ -96,3 +96,47 @@ function preload() {
       text("Sorry", 400 / 2, 400 / 2);
     }
   }
+
+  class Wave {
+    constructor(radius, waveColor = [0, 0 ,0], waveWeight = 1) {
+      this.radius = radius;
+      this.speed = 1;
+      this.waveWeight = waveWeight;
+      this.waveColor = waveColor;
+    }
+  
+    create() {
+      noFill();
+      strokeWeight(this.waveWeight);
+      stroke(this.waveColor);
+      ellipse(200, 200, this.radius);
+    }
+  
+    send(speed) {
+      this.speed = speed;
+      if (this.radius < 800) {
+        this.radius += this.speed;
+      }
+    }
+  
+    fade(rate = 1) {
+      /*
+            the plan is to make the rgb values of the wave
+            to be the same as the background rgb values, 
+            so we're simulating transparency...
+      */
+  
+      this.waveColor = [...this.waveColor].map((v, i) => {
+        // if the wave rgb value is less than the bg color, increase till they match
+        if (v < bgColor[i]) {
+          v += rate;
+        } else if (v > bgColor[i]) {
+          // else decrease till match
+          v -= rate;
+        }
+  
+        return v;
+      });
+    }
+  }
+  
